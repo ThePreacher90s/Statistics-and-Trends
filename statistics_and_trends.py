@@ -1,4 +1,3 @@
-from corner import corner
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -8,10 +7,10 @@ import seaborn as sns
 
 def plot_relational_plot(df):
     """
-    Plotting scatter plots to check the relationships between petal-lenght 
+    Plotting scatter plots to check the relationships between petal-lenght
     and the species of iris flower.
     """
-    # Creates a figure (fig) and an axis (ax) for plotting. 
+    # Creates a figure (fig) and an axis (ax) for plotting.
     # dpi = 144 Increases the resolution to display better.
     fig, ax = plt.subplots(dpi=144)
     # plotting a scatter plot, the label was used to produce a good legend
@@ -75,21 +74,22 @@ def plot_statistical_plot(df):
 
 def statistical_analysis(df, col: str):
     """
-    Computes statistical properties (mean, standard deviation, skewness, and kurtosis)
+    Computes statistical properties (mean,
+    standard deviation, skewness, and kurtosis)
     for a given numerical column in the DataFrame.
     """
     # Compute statistics
     mean = df[col].mean()  # Mean (average)
     stddev = df[col].std() # Standard Deviation (spread of values)
-    skew = ss.skew(df[col], nan_policy='omit')  # Skewness (asymmetry)
-    excess_kurtosis = ss.kurtosis(df[col], nan_policy='omit')  # Excess Kurtosis
+    skew = ss.skew(df[col], nan_policy='omit')# Skewness (asymmetry)
+    excess_kurtosis = ss.kurtosis(df[col], nan_policy='omit')#Kurtosis
     return mean, stddev, skew, excess_kurtosis
 
 
 def preprocessing(df):
     """
     Cleans the dataset by removing duplicates, handling missing values,
-    and printing key insights such as summary statistics, 
+    and printing key insights such as summary statistics,
     first few rows, and correlation matrix.
     """
     # Drop duplicate rows if any
@@ -102,14 +102,14 @@ def preprocessing(df):
     # Displays the first five rows of the data by default
     print("\nHead(the first five rows):\n", df.head())
     # Computes correlation matrix for numerical columns
-    print("\nThe correlations of numerical data:\n", df.corr(numeric_only=True))
+    print("\nCorrelations of numerical data:\n", df.corr(numeric_only=True))
     # Returns the preprocessed data
     return df
 
 
 def writing(moments, col):
     """
-    Prints statistical moments and interprets skewness 
+    Prints statistical moments and interprets skewness
     and kurtosis of a dataset.
     """
     print(f'For the attribute {col}:')
@@ -140,6 +140,7 @@ def writing(moments, col):
 
 
 def main():
+
     df = pd.read_csv('data.csv')
     df = preprocessing(df)
     col = 'petal_length'
