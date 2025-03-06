@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 import scipy.stats as ss
 import seaborn as sns
@@ -134,7 +133,6 @@ def writing(moments, col):
         kurtosis_type = "leptokurtic"
     else:
         kurtosis_type = "mesokurtic"
-
     print(f'The data is {skewness_type} and {kurtosis_type}.')
     return
 
