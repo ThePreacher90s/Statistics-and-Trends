@@ -80,9 +80,9 @@ def statistical_analysis(df, col: str):
     """
     # Compute statistics
     mean = df[col].mean()  # Mean (average)
-    stddev = df[col].std() # Standard Deviation (spread of values)
-    skew = ss.skew(df[col], nan_policy='omit')# Skewness (asymmetry)
-    excess_kurtosis = ss.kurtosis(df[col], nan_policy='omit')#Kurtosis
+    stddev = df[col].std()  # Standard Deviation (spread of values)
+    skew = ss.skew(df[col], nan_policy='omit')  # Skewness (asymmetry)
+    excess_kurtosis = ss.kurtosis(df[col], nan_policy='omit')  # Kurtosis
     return mean, stddev, skew, excess_kurtosis
 
 
